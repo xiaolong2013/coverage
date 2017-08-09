@@ -1,0 +1,30 @@
+{
+  "name": "coverage",
+  "version": "1.0.0",
+  "description": "从零开始给自己的开源项目增加测试覆盖率",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "cove":"istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaolong2013/coverage.git"
+  },
+  "keywords": [
+    "coverage"
+  ],
+  "author": "yxl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xiaolong2013/coverage/issues"
+  },
+  "homepage": "https://github.com/xiaolong2013/coverage#readme",
+  "devDependencies": {
+    "coveralls": "^2.13.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.5.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "should": "^11.2.1"
+  }
+}
