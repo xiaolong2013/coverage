@@ -14,5 +14,8 @@ describe('sum', function() {
         it('1 add 2 should equal 3', function() {
             add(1,2).should.equal(3);
         });
+        it('4 add 5 should equal 9', function() {
+            add(4,5).should.equal(9);
+        });
     });
 });
