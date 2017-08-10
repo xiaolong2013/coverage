@@ -22,22 +22,46 @@ npm install should --save-dev
 * 编写测试用例
 
 ```
-function add(x,y){
-	return x+y
+let should = require('should');
+
+function add(x, y){
+	return x + y
 }
 
 describe('sum', function() {
     describe('#add()', function() {
         it('1 add 2 should equal 3', function() {
-            add(1,2).should.equal(3);
+            add(1, 2).should.equal(3);
         });
         it('4 add 5 should equal 9', function() {
-            add(4,5).should.equal(9);
+            add(4, 5).should.equal(9);
         });
     });
 });
 
+* 执行 mocha 测试用例通过
+
+* 安装 node 环境下的 测试覆盖率库 Istanbul
+
 ```
+  npm install istanbul -g
+```
+
+* 安装mocha 的测试报告输出库 mocha-lcov-reporter
+
+```
+  npm install mocha-lcov-reporter --save-dev
+```
+
+* 先在本地执行
+
+```
+  istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly
+```
+
+* 开始做测试覆盖率
+  
+  ** 打开 https://github.com/nickmerwin/node-coveralls    
 
 * node-coveralls
    
