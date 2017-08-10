@@ -38,7 +38,7 @@ describe('sum', function() {
         });
     });
 });
-
+```
 * 执行 mocha 测试用例通过
 
 * 安装 node 环境下的 测试覆盖率库 Istanbul
