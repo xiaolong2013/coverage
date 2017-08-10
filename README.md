@@ -101,7 +101,7 @@ before_install:
      npm run cove  
 ```
 
-* 再次push  build 完成并且数据提交成功以后 在 https://coveralls.io网站中自己的仓库中就会显示出 覆盖率
+* 再次push  build 完成并且数据提交成功以后 在coveralls.io网站中自己的仓库中就会显示出 覆盖率
 
 * 添加 badge(勋章)
 
