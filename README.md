@@ -59,38 +59,61 @@ describe('sum', function() {
   istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly
 ```
 
-* 开始做测试覆盖率
-  
-  ** 打开 https://github.com/nickmerwin/node-coveralls    
 
-* node-coveralls
+* 安装 node-coveralls  coveralls 的作用是 收集istanbul生成的测试数据 发送到 coveralls.io这个网站显示你的 覆盖率
    
 ```
-1.npm install coveralls --save-dev
-2.npm install mocha-lcov-reporter --save-dev 安装 mocha 的报告生成方式
+ npm install coveralls --save-dev
 ```
  
-* 安装 Istanbul 
+* 打开 https://travis-ci.com/(存放自己的private 仓库) 并用github 帐号做认证  然后 https://travis-ci.org(这个存放资金的public 仓库) 添加需要 build的 repo 
+
+* 添加.travis.yml 在自己的项目根目录下
 
 ```
-1.npm install istanbul --save-dev
+ language: node_js
+ node_js:
+  - "6"  
+ install: 
+   npm install -g mocha
+   npm install -g istanbul
+   npm install 
+   npm run test  
 ```
 
-* 在本地先把 测试数据生成
+* 开始 push 代码 并触发 ci build 
+
+
+* https://coveralls.io/  用github 帐号做认证然后同步数据  添加要显示覆盖率的repo
+
+
+* 在 package.json 文件中 增加
 
 ```
-1.istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly
+ "scripts": {
+    "test": "mocha",
+    "cove":"istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+  } 
 ```
 
-* 开始接入远端服务
-* 1.先加入 travis-cl 集成进去 编译通过了
-* 2.再加入 https://coveralls.io  往项目的根目录下 添加 .coveralls.yml 配置文件(这个配置文件其实不需要 本地也不需要)
-* 3.往项目的readMe 文件中添加 勋章 badge
-* 4.往 package.json 中 加入测试覆盖率的执行脚本 istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage 这段脚本在 node-coveralls Istanbul 就有
-* 5.在 .travis.yml 中加入 执行脚本 就前面的执行 成功后 在执行 测试覆盖率after_script:npm run cover 
-* 6.在 travis.ci 中配置一下 COVERALLS_REPO_TOKEN  不然会报 422 找不到 仓库的  
-    以上步骤全部执行完以后就可以开始编译了
+* 在 .travis.yml 中添加 最后执行测试覆盖率 
 
+```
+  after_script:
+     npm run cove  
+```
+
+* 再次push  build 完成并且数据提交成功以后 在 https://coveralls.io网站中自己的仓库中就会显示出 覆盖率
+
+* 添加 badge(勋章)
+
+```
+   在 Readme 中添加
+   [![Build Status](https://travis-ci.org/xiaolong2013/coverage.svg?branch=master)](https://travis-ci.org/xiaolong2013/coverage.svg?branch=master)
+   [![Coverage Status](https://coveralls.io/repos/github/xiaolong2013/coverage/badge.svg?branch=master)](https://coveralls.io/github/xiaolong2013/coverage?branch=master)
+```
+ 
+ 
 ### 参考
 
 * [should.js](https://github.com/shouldjs/should.js)
