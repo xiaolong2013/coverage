@@ -13,6 +13,32 @@
 npm install mocha -g
 ```
 
+* 安装断言库 should
+
+```
+npm install should --save-dev
+```
+
+* 编写测试用例
+
+```
+function add(x,y){
+	return x+y
+}
+
+describe('sum', function() {
+    describe('#add()', function() {
+        it('1 add 2 should equal 3', function() {
+            add(1,2).should.equal(3);
+        });
+        it('4 add 5 should equal 9', function() {
+            add(4,5).should.equal(9);
+        });
+    });
+});
+
+```
+
 * node-coveralls
    
 ```
