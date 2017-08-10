@@ -66,25 +66,23 @@ describe('sum', function() {
  npm install coveralls --save-dev
 ```
  
-* 打开 https://travis-ci.com/(存放自己的private 仓库) 并用github 帐号做认证  然后 https://travis-ci.org(这个存放资金的public 仓库) 添加需要 build的 repo 
+* 打开 travis-ci.com/(存放自己的private 仓库) 并用github 帐号做认证  然后 travis-ci.org(这个存放资金的public 仓库) 添加需要 build的 repo 
 
 * 添加.travis.yml 在自己的项目根目录下
 
 ```
- language: node_js
- node_js:
+language: node_js
+node_js:
   - "6"  
- install: 
-   npm install -g mocha
-   npm install -g istanbul
-   npm install 
-   npm run test  
+before_install: 
+  npm install -g mocha
+  npm install -g istanbul
 ```
 
 * 开始 push 代码 并触发 ci build 
 
 
-* https://coveralls.io/  用github 帐号做认证然后同步数据  添加要显示覆盖率的repo
+* 打开 coveralls.io/  用github 帐号做认证然后同步数据  添加要显示覆盖率的repo
 
 
 * 在 package.json 文件中 增加
