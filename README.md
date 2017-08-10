@@ -117,6 +117,9 @@ describe('sum', function() {
 ### 参考
 
 * [should.js](https://github.com/shouldjs/should.js)
+* [istanbul](https://github.com/gotwarlost/istanbul)
+* [node-coveralls](https://github.com/nickmerwin/node-coveralls)
+* [coveralls.io](https://coveralls.io)
 * [Travis CI](https://www.travis-ci.org/)
 * [Travis CI Node](https://docs.travis-ci.com/user/languages/javascript-with-nodejs/)
 
